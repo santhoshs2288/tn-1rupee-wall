@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>₹1 Tamil Nadu Wall of Fame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #050816;
+      color: #f9fafb;
+    }
+
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .tagline {
+      color: #9ca3af;
+      margin-top: 8px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #111827, #020617);
+      border-radius: 20px;
+      padding: 24px;
+      border: 1px solid #1f2937;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .hero-left {
+      flex: 1 1 280px;
+    }
+
+    .hero-right {
+      flex: 0 0 240px;
+      text-align: center;
+    }
+
+    .big-button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      margin-top: 12px;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22c55e, #16a34a);
+      color: white;
+      text-decoration: none;
+      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+    }
+
+    .big-button:hover {
+      transform: translateY(-1px);
+    }
+
+    .secondary-button {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid #4b5563;
+      font-size: 14px;
+      font-weight: 500;
+      margin-top: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #e5e7eb;
+      background: #020617;
+    }
+
+    .secondary-button:hover {
+      border-color: #9ca3af;
+    }
+
+    .qr-frame {
+      background: #020617;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid #1f2937;
+      display: inline-block;
+    }
+
+    .qr-frame img {
+      width: 180px;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .step-card {
+      background: #020617;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid #1f2937;
+      font-size: 14px;
+    }
+
+    .step-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #22c55e;
+      color: #020617;
+      font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #16a34a;
+      color: #bbf7d0;
+      background: rgba(22, 163, 74, 0.15);
+    }
+
+    .wall {
+      margin-top: 16px;
+      background: #020617;
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid #1f2937;
+    }
+
+    .wall-count {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .wall-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .city-column {
+      background: #030712;
+      border-radius: 16px;
+      padding: 14px;
+      border: 1px solid #111827;
+    }
+
+    .city-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .city-title span {
+      font-size: 11px;
+      color: #9ca3af;
+      font-weight: 400;
+    }
+
+    .names-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .name-pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid #111827;
+      color: #e5e7eb;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .about, .faq, .usage, .proof-section {
+      background: #020617;
+      border-radius: 20px;
+      padding: 20px;
+      border: 1px solid #1f2937;
+      font-size: 14px;
+      color: #d1d5db;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    .faq-item {
+      margin-bottom: 10px;
+    }
+
+    .faq-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #e5e7eb;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      color: #6b7280;
+      padding: 20px 0 30px;
+    }
+
+    code {
+      background: #030712;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .highlight {
+      color: #bef264;
+      font-weight: 600;
+    }
+
+    @media (max-width: 640px) {
+      .hero-card {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>₹1 Tamil Nadu Wall of Fame</h1>
+    <p class="tagline">
+      Send just ₹1 via UPI and get your name proudly displayed on this wall.  
+      This wall is for the people of Tamil Nadu who want to help students continue their studies 💚
+    </p>
+  </header>
+
+  <div class="container">
+    <!-- HERO SECTION -->
+    <section class="hero-card">
+      <div class="hero-left">
+        <div class="badge">
+          🔥 Live Experiment · 1 ரூபாய் Support
+        </div>
+        <h2 style="margin-top:14px;">Be part of India’s most affordable support movement.</h2>
+        <p style="font-size:14px;color:#d1d5db;">
+          If you like this idea, send just ₹1. Your support will go only towards college and school
+          fees for students who are struggling. Your name and place will be added to the public Wall
+          of Fame on this page.
+        </p>
+        <p style="font-size:14px;color:#a3e635;margin-top:8px;">
+          தமிழ்: உங்க பெயர் & இடம் இதுல வந்தா போதும். நாம எல்லாரும் சேர்ந்து
+          படிப்பு நிறுத்திக்கற மாணவர்களுக்கு சின்ன தள்ளு குடுக்கலாம். உங்க
+          பெயர் இந்த wallல mention ஆகும் 💚
+        </p>
+
+        <!-- IMPORTANT: CHANGE s-tamilnadu1rs@ptyes TO YOUR REAL UPI ID -->
+        <a class="big-button"
+           href="upi://pay?pa=s-tamilnadu1rs@ptyes&pn=TN%20Wall%20Support&am=1&cu=INR">
+          Pay ₹1 with UPI
+        </a>
+        <p style="font-size:12px;color:#9ca3af;margin-top:8px;">
+          Or send to UPI ID: <code>s-tamilnadu1rs@ptyes</code> (change this to your real UPI ID)
+        </p>
+      </div>
+
+      <div class="hero-right">
+        <div class="qr-frame">
+          <!-- Your QR image must be qr-code.png -->
+          <img src="qr-code.png" alt="Scan to pay ₹1 UPI" />
+        </div>
+        <p style="font-size:12px;color:#9ca3af;margin-top:8px;">
+          Scan this QR in PhonePe / GPay / Paytm and send ₹1.<br/>
+          After payment, tap the button below and submit your name & place.
+        </p>
+      </div>
+    </section>
+
+    <!-- FORM SECTION -->
+    <section style="margin-top:24px;">
+      <h2>Submit your Name & Place</h2>
+      <p style="font-size:14px;color:#d1d5db;max-width:700px;">
+        After sending ₹1, please fill this small form with your <span class="highlight">Name</span>,
+        <span class="highlight">Area</span> and <span class="highlight">District / City</span>.
+        We will use those details to add you to the correct side of the Wall (Chennai, Trichy, etc.).
+      </p>
+      <a class="secondary-button"
+         href="https://docs.google.com/forms/d/e/1FAIpQLSfhlGXTh5NPmfc690fPIf5tq0lUrm_wog-8K8syPw9k3YBVbw/viewform?usp=publish_editor"
+         target="_blank" rel="noopener noreferrer">
+        📋 Open Supporter Form
+      </a>
+      <p style="font-size:12px;color:#9ca3af;margin-top:6px;">
+        If the button doesn’t open, copy this link and paste in your browser:<br/>
+        <code>https://docs.google.com/forms/d/e/1FAIpQLSfhlGXTh5NPmfc690fPIf5tq0lUrm_wog-8K8syPw9k3YBVbw/viewform</code>
+      </p>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section>
+      <h2>How it works</h2>
+      <div class="steps">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <strong>Send ₹1 via UPI</strong>
+          <p>Scan the QR or use the UPI ID <code>s-tamilnadu1rs@ptyes</code> and send exactly ₹1.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <strong>Fill your details in the form</strong>
+          <p>Open the Google Form and enter your name, area and district/city. This helps us group all people from the same place together.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <strong>We add you to the wall</strong>
+          <p>Your name will be added under your place – for example all Chennai supporters on one side, all Trichy supporters on another side.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <strong>We support students</strong>
+          <p>The collected money will be used only for college and school fees. Proofs will be posted at the bottom of this page.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WALL OF FAME -->
+    <section class="wall">
+      <div class="wall-count">
+        <span>🌟 <strong>Wall of Fame – Tamil Nadu Supporters</strong></span>
+        <span>Total supporters: <strong>0</strong> </span>
+      </div>
+
+      <p style="font-size:13px;color:#9ca3af;margin-bottom:12px;">
+        All Chennai people are shown together on one side, Trichy people on another side, and so on.
+        When you support with ₹1 and fill the form, your name and place will appear here.
+      </p>
+
+      <div class="wall-layout">
+        <!-- CHENNAI COLUMN -->
+        <div class="city-column">
+          <div class="city-title">
+            Chennai
+            <span> </span>
+          </div>
+          <div class="names-grid">
+            <div class="name-pill">Santhosh – Chromepet</div>
+            <div class="name-pill">Priya – Anna Nagar</div>
+            <div class="name-pill">Vikram – Tambaram</div>
+          </div>
+        </div>
+
+        <!-- TRICHY COLUMN -->
+        <div class="city-column">
+          <div class="city-title">
+            Trichy
+            <span> </span>
+          </div>
+          <div class="names-grid">
+            <div class="name-pill">Karthik – Srirangam</div>
+            <div class="name-pill">Meena – Thillai Nagar</div>
+          </div>
+        </div>
+
+        <!-- OTHER PLACES COLUMN -->
+        <div class="city-column">
+          <div class="city-title">
+            Other Places
+            <span> </span>
+          </div>
+          <div class="names-grid">
+            <div class="name-pill">Rahul – Coimbatore</div>
+            <div class="name-pill">Divya – Madurai</div>
+            <div class="name-pill">Siva – Salem</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:12px;color:#6b7280;margin-top:10px;">
+        You will be mentioned on this wall with your <strong>Name</strong> and <strong>Place</strong> once we receive your ₹1 support and form details.
+      </p>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about">
+      <h2>Why this wall exists</h2>
+      <p>
+        I am a student from Tamil Nadu who had to <strong>discontinue my college in 2nd year</strong>
+        because of money problems. When I was searching for fees, I felt completely alone.
+        That feeling of being ignored when you are genuinely struggling for education is very painful.
+      </p>
+      <p>
+        I don’t want other students to go through the same thing I faced. This wall is my way of
+        creating a small but real support system. Even if it is just ₹1 from each person, it shows
+        that somebody cares about their studies.
+      </p>
+      <p>
+        Your support is not for timepass. It is directly connected to students’ education.
+        Every rupee is important. And because of that, your name deserves to live forever on this wall.
+      </p>
+    </section>
+
+    <!-- HOW THE MONEY IS USED -->
+    <section class="usage">
+      <h2>How the money will be used</h2>
+      <ul style="padding-left:20px;margin-top:6px;">
+        <li>Money from this project will be used <strong>only</strong> for <strong>college and school fees</strong> of students who cannot afford it.</li>
+        <li>Priority will be given to students who are at risk of <strong>discontinuing studies</strong> like I did.</li>
+        <li>Whenever fees are paid, we will collect proof (fee receipt / ID card screenshot with name hidden if needed).</li>
+        <li>Those proofs will be posted on this same page in the section below so everybody can see where the money went.</li>
+      </ul>
+    </section>
+
+    <!-- PROOF SECTION -->
+    <section class="proof-section">
+      <h2>Proof & Transparency</h2>
+      <p>
+        This section will be updated with <strong>real stories and proofs</strong> of students whose
+        fees were paid using your ₹1 supports. It may include:
+      </p>
+      <ul style="padding-left:20px;margin-top:6px;">
+        <li>Blurred screenshots of fee payment receipts</li>
+        <li>Short story of the student (without revealing private details)</li>
+        <li>Total amount used and how many students were helped</li>
+      </ul>
+      <p style="font-size:13px;color:#9ca3af;">
+        Right now this wall is just starting. As support grows, this section will fill with proof that
+        your ₹1 really went to someone’s education.
+      </p>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="faq">
+      <h2>FAQ</h2>
+
+      <div class="faq-item">
+        <strong>Is this an investment? Will I get my money back?</strong>
+        <p>No. This is not an investment or business scheme. This is only a voluntary support of ₹1 to help students with education. There is no promise of returns.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>How will my name come on the wall?</strong>
+        <p>After sending ₹1, fill the Google Form with your name and place. We will add you under the correct city/area so all people from the same place stand together.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>Can I give more than ₹1?</strong>
+        <p>Yes, you can send more if you want, but ₹1 itself is enough to join the wall. The main idea is that everyone can participate, even with a very small amount.</p>
+      </div>
+
+      <div class="faq-item">
+        <strong>How do I know the money is really used for studies?</strong>
+        <p>Whenever we use the money for fees, we will update the Proof & Transparency section with details and screenshots. You can check this page anytime.</p>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    Made with ❤️ from Tamil Nadu · This is a personal project to support students’ education.<br/>
+    Please support only if you are comfortable sending ₹1.
+  </footer>
+</body>
+</html>
